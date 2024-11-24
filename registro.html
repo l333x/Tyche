@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - TYCHE</title>
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>TYCHE</h1>
+        </header>
+
+        <main class="main">
+            <div class="auth-container">
+                <!-- Iniciar Sesión -->
+                <div class="auth-box">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="loginForm">
+                        <label for="loginCorreo">Correo</label>
+                        <input type="email" id="loginCorreo" name="correo" placeholder="Correo" required>
+
+                        <label for="loginContrasena">Contraseña</label>
+                        <input type="password" id="loginContrasena" name="contrasena" placeholder="Contraseña" required>
+
+                        <button type="submit" class="btn">Entrar</button>
+                    </form>
+                </div>
+
+                <!-- Crear Cuenta -->
+                <div class="auth-box">
+                    <h2>Crear Cuenta</h2>
+                    <form id="registerForm">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+                        <label for="registerCorreo">Correo</label>
+                        <input type="email" id="registerCorreo" name="correo" placeholder="Correo" required>
+
+                        <label for="registerContrasena">Contraseña</label>
+                        <input type="password" id="registerContrasena" name="contrasena" placeholder="Contraseña" required>
+
+                        <button type="submit" class="btn">Crear Cuenta</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 TYCHE. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="js/registro.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+:root {
+    --color-principal: #B08968; /* Marrón */
+    --color-secundario: #D9C6A5; /* Beige */
+    --color-fondo: #001427;     /* Azul oscuro */
+    --color-texto: #FFFFFF;     /* Blanco */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-principal);
+    padding: 1rem 2rem;
+    border-radius: 0 0 12px 12px;
+}
+
+.mis-puntos {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.puntos-totales {
+    background-color: var(--color-secundario);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.transacciones {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    padding: 0.5rem;
+}
+
+tbody td {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid var(--color-secundario);
+}
