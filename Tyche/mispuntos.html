@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Puntos - Tyche</title>
+    <link rel="stylesheet" href="css/mispuntos.css">
+</head>
+<body>
+    <header class="header">
+        <h1>TYCHE</h1>
+        <a href="actividades.html" class="perfil-enlace">Volver a Actividades</a>
+    </header>
+
+    <main>
+        <!-- Sección de Puntos Totales -->
+        <section class="mis-puntos">
+            <h2>Mis Puntos</h2>
+            <div class="puntos-totales">
+                <h3>Puntos Totales</h3>
+                <p id="puntosTotales">0</p>
+            </div>
+        </section>
+
+        <!-- Sección de Transacciones -->
+        <section class="transacciones">
+            <h3>Transacciones</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Día</th>
+                        <th>Puntos</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="listaTransacciones">
+                    <!-- Actividades cargadas dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 TYCHE. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/mispuntos.js"></script>
+</body>
+</html>

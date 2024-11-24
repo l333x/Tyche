@@ -1,0 +1,215 @@
+:root {
+    --color-principal: #B08968; /* Marrón */
+    --color-secundario: #D9C6A5; /* Beige */
+    --color-fondo: #001427;     /* Azul oscuro */
+    --color-texto: #FFFFFF;     /* Blanco */
+    --color-titulo: #000000;    /* Negro para los títulos */
+    --color-completado: #00FF00; /* Verde */
+    --color-pendiente: #FF4500; /* Rojo */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-principal);
+    padding: 1rem 2rem;
+    border-radius: 0 0 12px 12px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+}
+
+.header a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header a:hover {
+    color: var(--color-secundario);
+}
+
+/* Contenedor Principal */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Perfil del Estudiante */
+.perfil-estudiante {
+    background-color: var(--color-secundario);
+    padding: 2rem;
+    border-radius: 12px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.perfil-estudiante h3 {
+    color: var(--color-titulo);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.perfil-estudiante .formulario-campo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.perfil-estudiante label {
+    font-weight: bold;
+    color: var(--color-titulo);
+    flex: 1;
+}
+
+.perfil-estudiante input {
+    flex: 2;
+    padding: 0.7rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.perfil-estudiante input:focus {
+    outline: 2px solid var(--color-principal);
+}
+
+.perfil-estudiante button {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.perfil-estudiante button:hover {
+    background-color: var(--color-fondo);
+    color: var(--color-secundario);
+}
+
+/* Puntos Totales */
+.puntos-totales {
+    background-color: var(--color-secundario);
+    padding: 1rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px; /* Igual al cuadro de actividades */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.puntos-totales h3 {
+    font-size: 1.2rem;
+    color: var(--color-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.puntos-totales p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-titulo);
+}
+
+/* Resumen de Actividades */
+.resumen-actividades {
+    background-color: var(--color-secundario);
+    padding: 1rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px; /* Igual al cuadro de puntos */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 1rem auto 0;
+}
+
+.resumen-actividades h3 {
+    font-size: 1.2rem;
+    color: var(--color-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.resumen-actividades p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.resumen-actividades span {
+    font-weight: bold;
+}
+
+/* Contenedor de selección de avatar */
+.avatar-selector {
+    margin-top: 1rem;
+}
+
+.avatar-selector h4 {
+    margin-bottom: 1rem;
+    color: var(--color-titulo);
+    font-size: 1.2rem;
+}
+
+.avatar-opciones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+.avatar[data-avatar="azul"] {
+    background-color: #007BFF; /* Azul */
+}
+
+.avatar[data-avatar="verde"] {
+    background-color: #28A745; /* Verde */
+}
+
+.avatar[data-avatar="rojo"] {
+    background-color: #DC3545; /* Rojo */
+}
+
+.avatar[data-avatar="amarillo"] {
+    background-color: #FFC107; /* Amarillo */
+}
+
+.avatar.seleccionado {
+    border-color: var(--color-principal);
+    transform: scale(1.2);
+}

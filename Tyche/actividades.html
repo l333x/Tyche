@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades - Tyche</title>
+    <link rel="stylesheet" href="css/actividades.css">
+</head>
+<body>
+    <header class="header">
+        <h1>TYCHE</h1>
+        <a href="perfil.html" class="perfil-enlace">Mi Perfil</a>
+    </header>
+
+    <main>
+        <!-- Filtro de Actividades -->
+        <section class="filtro-actividades">
+            <h2>Seleccionar Actividades</h2>
+            <div class="botones">
+                <button class="btn" id="btnUniversitarias">Universitarias</button>
+                <button class="btn" id="btnExtracurriculares">Extracurriculares</button>
+            </div>
+        </section>
+
+        <!-- Actividades Recomendadas -->
+        <section class="actividades-recomendadas">
+            <h3>Actividades Recomendadas</h3>
+            <div id="listaActividades" class="lista-actividades"></div>
+        </section>
+
+        <!-- Actividad Asignada -->
+        <section class="actividad-asignada">
+            <h3>Actividad Asignada</h3>
+            <div id="actividadAsignada" class="rectangulo-actividad">
+                <p>Seleccione una actividad para asignar.</p>
+            </div>
+            <form id="formEvidencia">
+                <input type="file" id="inputEvidencia" />
+            </form>
+            <button id="btnAceptarActividad" class="btn-aceptar" style="display: none;">Aceptar Actividad</button>
+        </section>
+
+        <!-- Botón para ir al módulo Mis Puntos -->
+        <section class="ir-a-mispuntos">
+            <button id="btnVerMisPuntos" class="btn-ir-puntos">Ver Mis Puntos</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 TYCHE. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/actividades.js"></script>
+</body>
+</html>

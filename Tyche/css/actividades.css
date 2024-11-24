@@ -1,0 +1,117 @@
+:root {
+    --color-principal: #B08968; /* Marrón */
+    --color-secundario: #D9C6A5; /* Beige */
+    --color-fondo: #001427;     /* Azul oscuro */
+    --color-texto: #FFFFFF;     /* Blanco */
+    --color-en-proceso: #89CFF0; /* Azul claro */
+    --color-verificacion: #FFA500; /* Naranja */
+    --color-completado: #00FF00; /* Verde */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-principal);
+    padding: 1rem 2rem;
+    border-radius: 0 0 12px 12px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+.header a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.filtro-actividades {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.filtro-actividades .btn {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.actividades-recomendadas {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-secundario);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.lista-actividades .actividad {
+    background-color: var(--color-principal);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.lista-actividades .actividad.en-proceso {
+    background-color: var(--color-en-proceso);
+}
+
+.lista-actividades .actividad.verificacion {
+    background-color: var(--color-verificacion);
+}
+
+.lista-actividades .actividad.completada {
+    background-color: var(--color-completado);
+}
+
+.actividad-asignada {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-secundario);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.btn-aceptar {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-ir-puntos {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem auto;
+}
