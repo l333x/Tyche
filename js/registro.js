@@ -6,7 +6,7 @@ function validarCorreo(correo) {
 
 // Evento para el formulario de Inicio de Sesión
 document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evita que el formulario recargue la página
+    event.preventDefault();
 
     const correo = document.getElementById('loginCorreo').value.trim();
     const contrasena = document.getElementById('loginContrasena').value.trim();
@@ -16,14 +16,30 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     } else if (!validarCorreo(correo)) {
         alert('Por favor, ingresa un correo válido.');
     } else {
-        alert('Inicio de sesión exitoso. Redirigiendo al perfil...');
-        window.location.href = 'perfil.html'; // Redirige al archivo perfil.html
+        fetch('login.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ correo, contrasena })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                if (data.rol === 'profesor') {
+                    window.location.href = 'perfil_profesor.html'; // Ejemplo: redirigir al perfil del profesor
+                } else {
+                    window.location.href = 'perfil_estudiante.html'; // Ejemplo: redirigir al perfil del estudiante
+                }
+            } else {
+                alert(data.message);
+            }
+        });
     }
 });
 
 // Evento para el formulario de Crear Cuenta
 document.getElementById('registerForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evita que el formulario recargue la página
+    event.preventDefault();
 
     const cedula = document.getElementById('cedula').value.trim();
     const correo = document.getElementById('registerCorreo').value.trim();
@@ -35,11 +51,19 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     } else if (!validarCorreo(correo)) {
         alert('Por favor, ingresa un correo válido.');
     } else {
-        // Guardar información en localStorage para usar en perfil.html
-        const usuario = { cedula, correo, rol };
-        localStorage.setItem('usuario', JSON.stringify(usuario));
-
-        alert('Cuenta creada exitosamente. Redirigiendo al perfil...');
-        window.location.href = 'perfil.html'; // Redirige al archivo perfil.html
+        fetch('registro.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ cedula, correo, contrasena, rol })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                window.location.href = 'perfil.html'; // Redirige al perfil
+            } else {
+                alert(data.message);
+            }
+        });
     }
 });
