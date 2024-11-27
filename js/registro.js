@@ -1,44 +1,11 @@
-// Validar correo electrónico con expresión regular
-function validarCorreo(correo) {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return regex.test(correo);
-}
+// Inicializar Supabase
+const supabase = supabase.createClient(
+    "https://tqhqpwzmasuwhxglihoj.supabase.co", // URL del proyecto
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxaHFwd3ptYXN1d2h4Z2xpaG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI3NTAzMzUsImV4cCI6MjA0ODMyNjMzNX0.IxleDNQ9az9eSQGhWuvMx-oJayG4kFIAu1xFGKXQA3Y" // Clave pública
+);
 
-// Evento para el formulario de Inicio de Sesión
-document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const correo = document.getElementById('loginCorreo').value.trim();
-    const contrasena = document.getElementById('loginContrasena').value.trim();
-
-    if (!correo || !contrasena) {
-        alert('Por favor, completa todos los campos.');
-    } else if (!validarCorreo(correo)) {
-        alert('Por favor, ingresa un correo válido.');
-    } else {
-        fetch('login.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({ correo, contrasena })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message);
-                if (data.rol === 'profesor') {
-                    window.location.href = 'perfil_profesor.html'; // Ejemplo: redirigir al perfil del profesor
-                } else {
-                    window.location.href = 'perfil_estudiante.html'; // Ejemplo: redirigir al perfil del estudiante
-                }
-            } else {
-                alert(data.message);
-            }
-        });
-    }
-});
-
-// Evento para el formulario de Crear Cuenta
-document.getElementById('registerForm').addEventListener('submit', function (event) {
+// Evento para crear una cuenta
+document.getElementById('registerForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const cedula = document.getElementById('cedula').value.trim();
@@ -48,22 +15,48 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
 
     if (!cedula || !correo || !contrasena || !rol) {
         alert('Por favor, completa todos los campos.');
-    } else if (!validarCorreo(correo)) {
-        alert('Por favor, ingresa un correo válido.');
+        return;
+    }
+
+    const { data, error } = await supabase.from('usuarios').insert([
+        {
+            cedula,
+            correo,
+            contraseña: contrasena,
+            rol
+        }
+    ]);
+
+    if (error) {
+        alert('Error al crear la cuenta: ' + error.message);
     } else {
-        fetch('registro.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({ cedula, correo, contrasena, rol })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message);
-                window.location.href = 'perfil.html'; // Redirige al perfil
-            } else {
-                alert(data.message);
-            }
-        });
+        alert('Cuenta creada exitosamente.');
+        window.location.href = 'perfil.html';
+    }
+});
+
+// Evento para iniciar sesión
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const correo = document.getElementById('loginCorreo').value.trim();
+    const contrasena = document.getElementById('loginContrasena').value.trim();
+
+    if (!correo || !contrasena) {
+        alert('Por favor, completa todos los campos.');
+        return;
+    }
+
+    const { data, error } = await supabase
+        .from('usuarios')
+        .select('*')
+        .eq('correo', correo)
+        .eq('contraseña', contrasena);
+
+    if (error || data.length === 0) {
+        alert('Correo o contraseña incorrectos.');
+    } else {
+        alert('Inicio de sesión exitoso.');
+        window.location.href = 'perfil.html';
     }
 });
