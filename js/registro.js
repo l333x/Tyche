@@ -1,4 +1,3 @@
-
 // Evento para crear una cuenta
 document.getElementById('registerForm').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -40,15 +39,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     if (!correo || !contrasena) {
         alert('Por favor, completa todos los campos.');
         return;
-    }
-
-    const { data, error } = await supabase
-        .from('usuarios')
-        .select('*')
-        .eq('correo', correo)
-        .eq('contraseña', contrasena);
-
-    if (error || data.length === 0) {
+    } if (error || data.length === 0) {
         alert('Correo o contraseña incorrectos.');
     } else {
         alert('Inicio de sesión exitoso.');
