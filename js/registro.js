@@ -1,8 +1,3 @@
-// Inicializar Supabase
-const supabase = supabase.createClient(
-    "https://tqhqpwzmasuwhxglihoj.supabase.co", // URL del proyecto
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxaHFwd3ptYXN1d2h4Z2xpaG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI3NTAzMzUsImV4cCI6MjA0ODMyNjMzNX0.IxleDNQ9az9eSQGhWuvMx-oJayG4kFIAu1xFGKXQA3Y" // Clave pública
-);
 
 // Evento para crear una cuenta
 document.getElementById('registerForm').addEventListener('submit', async function (event) {
